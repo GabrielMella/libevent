@@ -225,7 +225,7 @@ arc4_seed_sysctl_bsd(void)
 		for (len = 0; len < sizeof(buf); len += sizeof(unsigned)) {
 			n = sizeof(unsigned);
 			if (n + len > sizeof(buf))
-			    n = len - sizeof(buf);
+			    n = sizeof(buf) - len;
 			if (sysctl(mib, 2, &buf[len], &n, NULL, 0) == -1)
 				return -1;
 		}
